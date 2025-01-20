@@ -1,1 +1,3 @@
-# dot-configs
+# Sedang dalam pembikinan 
+
+## dot-configs
