@@ -1,3 +1,3 @@
 # Sedang dalam pembikinan 
 
-## dot-configs
+## Mengandungi fail-fail konfigurasi dan skrip `bash`. 
