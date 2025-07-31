@@ -1,0 +1,40 @@
+#!/usr/bin/env zsh
+
+set -euo pipefail
+
+CACHE_HOME="$HOME/.cache/mozilla/firefox/profile.personal"
+PUB_DIR="$HOME/blog/public/"
+URL="https://blog-hugo.loc"
+
+# Fungsi log mudah
+log() {
+  echo "[INFO] $1"
+}
+
+# Padam cache & output Hugo dengan pengesahan direktori
+if [[ -d "$CACHE_HOME" ]]; then
+  log "Removing Firefox cache: $CACHE_HOME"
+  rm -rf -- "$CACHE_HOME"
+else
+  log "No Firefox cache found."
+fi
+
+if [[ -d "$PUB_DIR" ]]; then
+  log "Removing previous Hugo output: $PUB_DIR"
+  rm -rf -- "$PUB_DIR"
+fi
+
+log "Rebuilding blog..."
+if hugo -D -b "$URL" -d "$PUB_DIR"; then
+  log "Generating search index with Pagefind..."
+  npx -y pagefind --site "$PUB_DIR"
+else
+  echo "[ERROR] Hugo build failed." >&2
+  exit 1
+fi
+
+log "Killing any existing hugo processes..."
+pkill -f "hugo.*-w" || log "No running hugo -w process found."
+
+log "Starting Hugo with live rebuild (no server)..."
+hugo server -D -b "$URL" --appendPort=false --forceSyncStatic --gc --liveReloadPort=-1
