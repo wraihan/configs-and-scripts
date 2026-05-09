@@ -1,0 +1,11 @@
+basicConstraints = CA:FALSE
+keyUsage = digitalSignature, nonRepudiation, keyEncipherment, dataEncipherment
+extendedKeyUsage = serverAuth, clientAuth
+subjectAltName = @alt_names
+
+[alt_names]
+DNS.1 = <Domain Name 1>
+DNS.2 = <Domain Name 2> 
+IP.1  = <IP address 1>
+IP.2  = <IP address 2>
+
