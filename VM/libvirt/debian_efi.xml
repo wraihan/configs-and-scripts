@@ -1,6 +1,5 @@
 <domain type='kvm'>
   <name>debian13</name>
-  <uuid>97143f09-e9a0-4f6f-8d25-ed152e8e1b47</uuid>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
       <libosinfo:os id="http://debian.org/debian/13"/>

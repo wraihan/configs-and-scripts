@@ -1,6 +1,5 @@
 <domain type='kvm'>
   <name>fedora44</name>
-  <uuid>27ccb7eb-7484-42ad-a62f-c48207c384ca</uuid>
   <metadata>
     <libosinfo:libosinfo xmlns:libosinfo="http://libosinfo.org/xmlns/libvirt/domain/1.0">
       <libosinfo:os id="http://fedoraproject.org/fedora/44"/>
